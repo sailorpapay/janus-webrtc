@@ -77,15 +77,17 @@ RUN cd ~ \
     && make install \
     && make configs
 
+RUN ls -la
+
 
 
 
 RUN rm /opt/janus/etc/janus/*
-COPY ./janus333/* /opt/janus/etc/janus/
-COPY ./janus/share/janus/certs/* /opt/janus/share/janus/certs/
+ADD ./conf/*.jcfg /opt/janus/etc/janus/
+ADD ./certs/ /opt/janus/share/janus/certs/
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80 7088 8088 8188 8089
 EXPOSE 10000-10200/udp
-#CMD sleep 800
+
 CMD service nginx restart && /opt/janus/bin/janus --nat-1-1=${DOCKER_IP}
