@@ -1,5 +1,6 @@
 FROM debian:buster
-
+LABEL maintainer="sailorpapay <sailorpapayy@gmail.com>"
+LABEL description="Image with Janus Gateway 2020"
 
 RUN apt-get update -y \
     && apt-get upgrade -y
@@ -76,10 +77,6 @@ RUN cd ~ \
     && make CFLAGS='-std=c99' \
     && make install \
     && make configs
-
-RUN ls -la
-
-
 
 
 RUN rm /opt/janus/etc/janus/*
