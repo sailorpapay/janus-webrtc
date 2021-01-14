@@ -1,9 +1,12 @@
- version: '3'
- janus-gateway:
-     build:
-      context: .
-    image: sailorpapay/janus-webrtc
+version: '3'
+
+services:
+  janus-gateway:
+    build:
+      context: ./docker
     restart: unless-stopped
+    tty: true
+    image: sailorpapay/janus-webrtc
     ports:
       - "8080:80"
       - "7088:7088"
@@ -13,3 +16,6 @@
       - "10000-10200:10000-10200/udp"
     environment:
       - DOCKER_IP=${DOCKER_IP}
+    
+    
+   
