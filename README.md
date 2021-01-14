@@ -1,5 +1,5 @@
 # janus-webrtc
-If you want local run -
+If you want local run  without HTTPS -
  comment out in janus.transport.http.jcfg
  
  
@@ -15,4 +15,10 @@ If you want local run -
  admin_secure_port = 7889			 
  
  
- And
+ 
+ 
+--------------------------------------
+If you want run with https - you need ssl.
+https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
+ 
+
