@@ -3,7 +3,7 @@ version: '3'
 services:
   janus-gateway:
     build:
-      context: ./docker
+      context: .
     restart: unless-stopped
     tty: true
     image: sailorpapay/janus-webrtc
